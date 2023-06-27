@@ -22,3 +22,31 @@ mod tests {
         assert_eq!(result, "A to B\nA to C\nB to C")
     }
 }
+
+#[cfg(test)]
+mod string_learning_tests {
+
+    #[test]
+    fn learn1() {
+        let a: &str = "a";
+        let b: &str = "b";
+        let result: String = a.to_owned() + b;
+        assert_eq!(result, "ab")
+    }
+
+    #[test]
+    fn learn2() {
+        let a: &str = "a";
+        let b: &str = "b";
+        let result: &str = &(a.to_owned() + b);
+        assert_eq!(result, "ab")
+    }
+
+    #[test]
+    fn learn3() {
+        let a: String = "a".to_owned();
+        let b: String = "b".to_owned();
+        let result: String = a + &b;
+        assert_eq!(result, "ab")
+    }
+}
