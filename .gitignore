@@ -1,5 +1,7 @@
 .DS_Store
 
-rust-hanoi/.idea
-rust-hanoi/target
-rust-hanoi/Cargo.lock
+.idea
+target
+
+# rust
+Cargo.lock
