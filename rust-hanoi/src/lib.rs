@@ -1,8 +1,14 @@
 pub fn hanoi(n: usize) ->  String {
-    hanoi_iter(n, "".to_owned())
+    hanoi_iter(
+        n,
+        "A".to_owned(),
+        "B".to_owned(),
+        "C".to_owned(),
+        "".to_owned()
+    )
 }
 
-fn hanoi_iter(n: usize, acc: String) -> String {
+fn hanoi_iter(n: usize, src: String, aux: String, dest: String, acc: String) -> String {
     if n == 1 {
         acc + "A to C"
     } else {
