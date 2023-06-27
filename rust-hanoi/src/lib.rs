@@ -33,6 +33,12 @@ mod tests {
         let result = hanoi(2);
         assert_eq!(result, "A to B\nA to C\nB to C\n")
     }
+
+    #[test]
+    fn should_solve_hanoi_with_3_disks() {
+        let result = hanoi(3);
+        assert_eq!(result, "A to C\nA to B\nC to B\nA to C\nB to A\nB to C\nA to C\n")
+    }
 }
 
 #[cfg(test)]
