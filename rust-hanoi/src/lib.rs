@@ -1,4 +1,8 @@
 pub fn hanoi(n: usize) ->  String {
+    hanoi_iter(n)
+}
+
+fn hanoi_iter(n: usize) -> String {
     if n == 1 {
         "A to C".to_owned()
     } else {
