@@ -1,8 +1,8 @@
-pub fn hanoi(n: usize) ->  &'static str {
+pub fn hanoi(n: usize) ->  String {
     if n == 1 {
-        "A to C"
+        "A to C".to_owned()
     } else {
-        "A to B\nA to C\nB to C"
+        "A to B\nA to C\nB to C".to_owned()
     }
 }
 
