@@ -1,3 +1,3 @@
-/.idea
-/target
-/Cargo.lock
+rust-hanoi/.idea
+rust-hanoi/target
+rust-hanoi/Cargo.lock
