@@ -2,19 +2,19 @@ pub fn hanoi(n: usize) ->  String {
     hanoi_iter(
         n,
         "A",
-        "B",
         "C",
+        "B",
         "".to_owned()
     )
 }
 
-fn hanoi_iter(n: usize, src: &str, aux: &str, dest: &str, acc: String) -> String {
+fn hanoi_iter(n: usize, src: &str, dest: &str, aux: &str, acc: String) -> String {
     if n == 1 {
         acc + &src + " to " + &dest + "\n"
     } else {
-        let first = hanoi_iter(n - 1, src, dest, aux, acc);
-        let second = hanoi_iter(1, src, aux, dest, first);
-        hanoi_iter(n - 1, aux, src, dest, second)
+        let first = hanoi_iter(n - 1, src, aux, dest, acc);
+        let second = hanoi_iter(1, src, dest, aux, first);
+        hanoi_iter(n - 1, aux, dest, src, second)
     }
 }
 
