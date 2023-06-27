@@ -1,5 +1,5 @@
 [package]
-name = "hanoi"
+name = "rust-hanoi"
 version = "0.1.0"
 edition = "2021"
 
