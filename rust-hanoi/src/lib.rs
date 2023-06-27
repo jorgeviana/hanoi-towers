@@ -10,9 +10,11 @@ pub fn hanoi(n: usize) ->  String {
 
 fn hanoi_iter(n: usize, src: &str, aux: &str, dest: &str, acc: String) -> String {
     if n == 1 {
-        acc + &src + " to " + &dest
+        acc + &src + " to " + &dest + "\n"
     } else {
-        acc + "A to B\nA to C\nB to C"
+        let first = hanoi_iter(n - 1, src, dest, aux, acc);
+        let second = hanoi_iter(1, src, aux, dest, first);
+        hanoi_iter(n - 1, aux, src, dest, second)
     }
 }
 
@@ -23,13 +25,13 @@ mod tests {
     #[test]
     fn should_solve_hanoi_with_1_disk() {
         let result = hanoi(1);
-        assert_eq!(result, "A to C")
+        assert_eq!(result, "A to C\n")
     }
 
     #[test]
     fn should_solve_hanoi_with_2_disks() {
         let result = hanoi(2);
-        assert_eq!(result, "A to B\nA to C\nB to C")
+        assert_eq!(result, "A to B\nA to C\nB to C\n")
     }
 }
 
