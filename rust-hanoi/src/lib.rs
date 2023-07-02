@@ -42,6 +42,20 @@ mod tests {
 }
 
 #[cfg(test)]
+mod list_learning_tests {
+
+    #[test]
+    fn learn1() {
+        let mut strings: Vec<String> = Vec::new();
+
+        strings.push(String::from("Hello"));
+
+        assert_eq!(strings, vec![String::from("Hello")])
+    }
+
+}
+
+#[cfg(test)]
 mod string_learning_tests {
 
     #[test]
