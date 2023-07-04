@@ -53,6 +53,17 @@ mod list_learning_tests {
         assert_eq!(strings, vec![String::from("Hello")])
     }
 
+    fn l(mut strings: Vec<String>) -> Vec<String> {
+        strings.push(String::from("Hello World"));
+        strings.clone()
+    }
+
+    #[test]
+    fn learn2() {
+        let m: Vec<String> = Vec::new();
+        let i = l(m);
+        assert_eq!(i, vec![String::from("Hello World")])
+    }
 }
 
 #[cfg(test)]
