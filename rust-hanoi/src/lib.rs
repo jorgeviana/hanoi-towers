@@ -1,20 +1,21 @@
-pub fn hanoi(n: usize) ->  String {
+pub fn hanoi(n: usize) ->  Vec<String> {
     hanoi_iter(
         n,
         "A",
         "C",
         "B",
-        "".to_owned()
+        Vec::new()
     )
 }
 
-fn hanoi_iter(n: usize, src: &str, dest: &str, aux: &str, acc: String) -> String {
+fn hanoi_iter(n: usize, src: &str, dest: &str, aux: &str, mut acc: Vec<String>) -> Vec<String> {
     if n == 1 {
-        acc + &src + " to " + &dest + "\n"
+        acc.push(src.to_string() + " to " + dest);
+        acc
     } else {
-        let first = hanoi_iter(n - 1, src, aux, dest, acc);
-        let second = hanoi_iter(1, src, dest, aux, first);
-        hanoi_iter(n - 1, aux, dest, src, second)
+        acc = hanoi_iter(n - 1, src, aux, dest, acc);
+        acc = hanoi_iter(1, src, dest, aux, acc);
+        hanoi_iter(n - 1, aux, dest, src, acc)
     }
 }
 
@@ -25,19 +26,31 @@ mod tests {
     #[test]
     fn should_solve_hanoi_with_1_disk() {
         let result = hanoi(1);
-        assert_eq!(result, "A to C\n")
+        assert_eq!(result, vec![String::from("A to C")])
     }
 
     #[test]
     fn should_solve_hanoi_with_2_disks() {
         let result = hanoi(2);
-        assert_eq!(result, "A to B\nA to C\nB to C\n")
+        assert_eq!(result, vec![
+            String::from("A to B"),
+            String::from("A to C"),
+            String::from("B to C"),
+        ])
     }
 
     #[test]
     fn should_solve_hanoi_with_3_disks() {
         let result = hanoi(3);
-        assert_eq!(result, "A to C\nA to B\nC to B\nA to C\nB to A\nB to C\nA to C\n")
+        assert_eq!(result, vec![
+            String::from("A to C"),
+            String::from("A to B"),
+            String::from("C to B"),
+            String::from("A to C"),
+            String::from("B to A"),
+            String::from("B to C"),
+            String::from("A to C"),
+        ])
     }
 }
 
